@@ -1,0 +1,6 @@
+services:
+  employee-api:
+    build: .
+    container_name: employee-api
+    ports:
+      - "8080:8080"

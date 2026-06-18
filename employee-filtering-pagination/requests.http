@@ -1,0 +1,22 @@
+### Без авторизації: очікується 401
+GET http://localhost:8080/api/employees
+
+### Пагінація
+GET http://localhost:8080/api/employees?page=0&size=3
+Authorization: Basic admin password
+
+### Фільтрація за посадою
+GET http://localhost:8080/api/employees?position=Developer&size=20
+Authorization: Basic admin password
+
+### Фільтрація за зарплатою
+GET http://localhost:8080/api/employees?minSalary=40000&maxSalary=60000&size=20
+Authorization: Basic admin password
+
+### Комбінована фільтрація, пагінація та сортування
+GET http://localhost:8080/api/employees?position=Developer&minSalary=40000&maxSalary=60000&page=0&size=5&sortBy=baseSalary&direction=desc
+Authorization: Basic admin password
+
+### Некоректні параметри пагінації нормалізуються до page=0 і size=10
+GET http://localhost:8080/api/employees?page=-10&size=0
+Authorization: Basic admin password
